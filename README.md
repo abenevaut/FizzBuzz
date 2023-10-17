@@ -22,5 +22,5 @@ Following [this exercise summary](https://codingdojo.org/kata/FizzBuzz/):
 0. clone the repository
 1. setup [PHPUnit](https://phpunit.de/)
 2. code & test the FizzBuzz inside the FizzBuzz class (`src/FizzBuzz.php`)
-4. bonus: do a mock of a Log database
-5. bonus: install & use [infection](https://infection.github.io/guide/)
+3. bonus: do a mock of a Log database
+4. bonus: install & use [infection](https://infection.github.io/guide/)
