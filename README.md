@@ -24,3 +24,5 @@ Following [this exercise summary](https://codingdojo.org/kata/FizzBuzz/):
 2. code & test the FizzBuzz inside the FizzBuzz class (`src/FizzBuzz.php`)
 3. bonus: do a mock of a Log database
 4. bonus: install & use [infection](https://infection.github.io/guide/)
+
+You are stuck in a step ? Checkout `stepX` branch to get help
