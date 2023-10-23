@@ -33,6 +33,32 @@ Following [this exercise summary](https://codingdojo.org/kata/FizzBuzz/):
 - Now you are able to `composer install` in this project directory
 
 1. setup [PHPUnit](https://phpunit.de/)
+
+- Follow the [PHPUnit installation guide](https://docs.phpunit.de/en/10.4/installation.html#installing-phpunit); we recommend to install with composer
+
+```powershell
+composer require --dev phpunit/phpunit
+```
+
+- Now set up the basics settings for PHPUnit
+
+```powershell
+vendor/bin/phpunit --generate-configuration
+New-Item -Path . -Name "tests" -ItemType "directory" 
+```
+
+- Now you are able to run PHPUnit, it will run without running any tests (there is no tests... so it's fine)
+
+```powershell
+vendor/bin/phpunit
+```
+
+- When executing, PHPUnit create a cache file we need to ignore in repository
+
+```powershell
+Add-Content -Path .\.gitignore -Value ".phpunit.cache"
+```
+
 2. code & test the FizzBuzz inside the FizzBuzz class (`src/FizzBuzz.php`)
 3. bonus: do a mock of a Log database
 4. bonus: install & use [infection](https://infection.github.io/guide/)
