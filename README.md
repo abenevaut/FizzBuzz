@@ -60,6 +60,13 @@ Add-Content -Path .\.gitignore -Value ".phpunit.cache"
 ```
 
 2. code & test the FizzBuzz inside the FizzBuzz class (`src/FizzBuzz.php`)
+
+- complete `FizzBuzz` class and elaborate it with multiple methods that make small and very comprehensive task
+- create your first test, the `FizzBuzzTest` class and complete the class with methods that test `FizzBuzz` class methods
+  - the `FizzBuzzTest`, have to inherit from `PHPUnit\Framework\TestCase` to be able to use assertion methods and do test/validation ([have a look to the doc](https://docs.phpunit.de/en/10.0/assertions.html))
+  - in `FizzBuzzTest`, each methods have to start with prefix `test` to be executed
+- execute `vendor/bin/phpunit` to run test suite
+
 3. execute fizzbuzz on one integer in `transformFromDatabase()` method you have to implement in `FizzBuzz` class and test it
 4. bonus: do a mock of a database interface that should return a list of Numbers, based on `DatabaseInterface`
 5. bonus: install & use [infection](https://infection.github.io/guide/)
