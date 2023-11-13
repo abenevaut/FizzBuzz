@@ -4,6 +4,23 @@ namespace App;
 
 class FizzBuzz
 {
+    public function __construct(protected Database $database) {}
+
+    public function transformFromDatabase(): array
+    {
+        $numbers = $this->database->getNumbers();
+
+        throw new \Exception('Execute the FizzBuzz on your array of numbers');
+
+        $results = [];
+
+        foreach ($numbers as $number) {
+            $results[$number] = $this->doFizzBuzz($number);
+        }
+
+        return $results;
+    }
+
     public function countTo100(): array
     {
         $results = [];
