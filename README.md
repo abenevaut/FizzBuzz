@@ -60,7 +60,8 @@ Add-Content -Path .\.gitignore -Value ".phpunit.cache"
 ```
 
 2. code & test the FizzBuzz inside the FizzBuzz class (`src/FizzBuzz.php`)
-3. bonus: do a mock of a Log database
-4. bonus: install & use [infection](https://infection.github.io/guide/)
+3. execute fizzbuzz on one integer in `transformFromDatabase()` method you have to implement in `FizzBuzz` class and test it
+4. bonus: do a mock of a database interface that should return a list of Numbers, based on `DatabaseInterface`
+5. bonus: install & use [infection](https://infection.github.io/guide/)
 
 You are stuck in a step ? Checkout `stepX` branch to get help
