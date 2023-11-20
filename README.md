@@ -97,7 +97,7 @@ class Database implements DatabaseInterface
 {
     public function getNumbers(): array
     {
-        throw new \Exception("DO NOT EDIT THIS");
+        throw new \Exception("DO NOT IMPLEMENT", 501);
     }
 }
 ```
@@ -123,8 +123,8 @@ class FizzBuzz
 <?php
 require './vendor/autoload.php';
 
-use App\FizzBuzz;
 use App\Database;
+use App\FizzBuzz;
 
 $fizzBuzz = new FizzBuzz();
 $fizzBuzz = new FizzBuzz(new Database());
@@ -141,7 +141,9 @@ try {
 try {
     $lines = $fizzBuzz->transformFromDatabase();
 } catch (Exception $e) {
-    echo "C'est ok, ce n'est pas encore implemente";
+    if (501 === $e->getCode()) {
+        echo 'Database::getNumbers() not implemented';
+    }
 }
 ```
 
