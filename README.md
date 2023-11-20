@@ -158,7 +158,10 @@ try {
 
 ### Solution
 
-
+- first, we will check that the exception from `Database::getNumbers()` is thrown, follow `tests/FizzBuzzTest::test_catch_getNumbers_exception()`
+  - notice that expectations are placed before the unit tested method
+- to get around this exception and test `FizzBuzz::transformFromDatabase()` method, we have to mock the `Database::getNumbers()` method
+  - https://docs.phpunit.de/en/10.4/test-doubles.html#mock-objects
 
 ## 4. bonus: do a mock of a database interface that should return a list of Numbers, based on `DatabaseInterface`
 ## 5. bonus: install & use [infection](https://infection.github.io/guide/)

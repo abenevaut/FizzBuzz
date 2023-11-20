@@ -8,11 +8,8 @@ class FizzBuzz
 
     public function transformFromDatabase(): array
     {
-        $numbers = $this->database->getNumbers();
-
-        throw new \Exception('Execute the FizzBuzz on your array of numbers');
-
         $results = [];
+        $numbers = $this->database->getNumbers();
 
         foreach ($numbers as $number) {
             $results[$number] = $this->doFizzBuzz($number);
