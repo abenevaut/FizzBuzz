@@ -19,11 +19,92 @@ php src/main.php
 # Do the KATA
 
 Following [this exercise summary](https://codingdojo.org/kata/FizzBuzz/):
-0. clone the repository
-1. setup [PHPUnit](https://phpunit.de/)
-2. code & test the FizzBuzz inside the FizzBuzz class (`src/FizzBuzz.php`)
-3. execute fizzbuzz on one integer in `transformFromDatabase()` method you have to implement in `FizzBuzz` class and test it
-4. bonus: do a mock of a database interface that should return a list of Numbers, based on `DatabaseInterface`
-5. bonus: install & use [infection](https://infection.github.io/guide/)
+## 0. clone the repository
+## 1. setup [PHPUnit](https://phpunit.de/)
+## 2. code & test the FizzBuzz inside the FizzBuzz class (`src/FizzBuzz.php`)
+## 3. create your first mock
+
+execute fizzbuzz inside `transformFromDatabase()` on an integers list provided by Database::getNumbers().
+but.. you cannot change `Database::getNumbers()`, so mock it!
+
+### Add followings files:
+
+- `src/DatabaseInterface.php`
+```
+<?php
+
+namespace App;
+
+interface DatabaseInterface
+{
+    /**
+     * return a list of numbers
+     *
+     * @return array
+     */
+    public function getNumbers(): array;
+}
+```
+
+- `src/Database.php`
+```
+<?php
+
+namespace App;
+
+class Database implements DatabaseInterface
+{
+    public function getNumbers(): array
+    {
+        throw new \Exception("DO NOT EDIT THIS");
+    }
+}
+```
+
+### Edit followings files:
+
+- `src/FizzBuzz.php`
+```
+class FizzBuzz
+{
+    public function __construct(protected Database $database) {}
+
+    public function transformFromDatabase(): array
+    {
+        $numbers = $this->database->getNumbers();
+
+        throw new \Exception('Execute the FizzBuzz on your array of numbers');
+    }
+```
+
+- `src/main.php`
+```
+<?php
+require './vendor/autoload.php';
+
+use App\FizzBuzz;
+use App\Database;
+
+$fizzBuzz = new FizzBuzz();
+$fizzBuzz = new FizzBuzz(new Database());
+
+try {
+    $lines = $fizzBuzz->countTo100();
+    foreach ($lines as $line) {
+        echo $line . PHP_EOL;
+    }
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+try {
+    $lines = $fizzBuzz->transformFromDatabase();
+} catch (Exception $e) {
+    echo "C'est ok, ce n'est pas encore implemente";
+}
+```
+
+## 4. bonus: do a mock of a database interface that should return a list of Numbers, based on `DatabaseInterface`
+## 5. bonus: install & use [infection](https://infection.github.io/guide/)
 
 You are stuck in a step ? Checkout `stepX` branch to get help
