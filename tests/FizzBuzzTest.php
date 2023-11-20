@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class FizzBuzzTest extends TestCase
 {
-    public function test_do_module_three()
+    public function test_do_modulo_three()
     {
         $fizzBuzz = new FizzBuzz();
 
@@ -16,7 +16,7 @@ class FizzBuzzTest extends TestCase
         $this->assertEmpty($fizzBuzz->doModuloThree(2));
     }
 
-    public function test_do_module_five()
+    public function test_do_modulo_five()
     {
         $fizzBuzz = new FizzBuzz();
 
