@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Database;
 use App\FizzBuzz;
 use PHPUnit\Framework\TestCase;
 
@@ -9,7 +10,7 @@ class FizzBuzzTest extends TestCase
 {
     public function test_do_modulo_three()
     {
-        $fizzBuzz = new FizzBuzz();
+        $fizzBuzz = new FizzBuzz(new Database());
 
         $this->assertSame('Fizz', $fizzBuzz->doModuloThree(3));
         $this->assertEmpty($fizzBuzz->doModuloThree(5));
@@ -18,7 +19,7 @@ class FizzBuzzTest extends TestCase
 
     public function test_do_modulo_five()
     {
-        $fizzBuzz = new FizzBuzz();
+        $fizzBuzz = new FizzBuzz(new Database());
 
         $this->assertSame('Buzz', $fizzBuzz->doModuloFive(5));
         $this->assertEmpty($fizzBuzz->doModuloFive(3));
@@ -27,7 +28,7 @@ class FizzBuzzTest extends TestCase
 
     public function test_do_fizz_buzz()
     {
-        $fizzBuzz = new FizzBuzz();
+        $fizzBuzz = new FizzBuzz(new Database());
 
         $this->assertSame('2', $fizzBuzz->doFizzBuzz(2));
         $this->assertSame('Fizz', $fizzBuzz->doFizzBuzz(3));
@@ -37,7 +38,7 @@ class FizzBuzzTest extends TestCase
 
     public function test_count_to_hundred()
     {
-        $fizzBuzz = new FizzBuzz();
+        $fizzBuzz = new FizzBuzz(new Database());
 
         $this->assertCount(100, $fizzBuzz->countTo100());
     }
