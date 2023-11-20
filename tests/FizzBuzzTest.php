@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Database;
+use App\DatabaseInterface;
 use App\FizzBuzz;
 use PHPUnit\Framework\TestCase;
 
@@ -62,6 +63,22 @@ class FizzBuzzTest extends TestCase
         $expectedFizzBuzzResults = [1 => '1', 15 => 'FizzBuzz', 3 => 'Fizz', 5 => 'Buzz'];
 
         $mockDatabase = $this->createConfiguredMock(Database::class, [
+            'getNumbers' => $doFizzBuzzFor,
+        ]);
+
+        $fizzBuzz = new FizzBuzz($mockDatabase);
+
+        $results = $fizzBuzz->transformFromDatabase();
+
+        $this->assertSame($expectedFizzBuzzResults, $results);
+    }
+
+    public function test_mock_getNumbers_from_interface()
+    {
+        $doFizzBuzzFor = [1, 15, 3, 5];
+        $expectedFizzBuzzResults = [1 => '1', 15 => 'FizzBuzz', 3 => 'Fizz', 5 => 'Buzz'];
+
+        $mockDatabase = $this->createConfiguredStub(DatabaseInterface::class, [
             'getNumbers' => $doFizzBuzzFor,
         ]);
 

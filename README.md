@@ -164,6 +164,14 @@ try {
   - https://docs.phpunit.de/en/10.4/test-doubles.html#mock-objects
 
 ## 4. bonus: do a mock of a database interface that should return a list of Numbers, based on `DatabaseInterface`
+
+### Solution
+
+- we can copy the previous mock test to `tests/FizzBuzzTest::test_mock_getNumbers_from_interface`
+- use `createConfiguredStub` rather than `createConfiguredMock`
+- now, test does not pass because of `TypeError: App\FizzBuzz::__construct(): Argument #1 ($database) must be of type App\Database`
+  - you have to change the type in `App\FizzBuzz` constructor `public function __construct(protected DatabaseInterface $database) {}`
+
 ## 5. bonus: install & use [infection](https://infection.github.io/guide/)
 
 You are stuck in a step ? Checkout `stepX` branch to get help

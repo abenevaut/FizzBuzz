@@ -4,7 +4,7 @@ namespace App;
 
 class FizzBuzz
 {
-    public function __construct(protected Database $database) {}
+    public function __construct(protected DatabaseInterface $database) {}
 
     public function transformFromDatabase(): array
     {
