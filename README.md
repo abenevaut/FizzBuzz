@@ -174,4 +174,14 @@ try {
 
 ## 5. bonus: install & use [infection](https://infection.github.io/guide/)
 
+### Solution
+
+- run `composer require infection/infection`
+- https://xdebug.org/download and download "PHP 8.2 VS16 (64 bit)"
+  - rename downloaded file to `php_xdebug.dll`
+  - paste in in `C:\php-8.2.11-nts-Win32-vs16-x64\ext`
+  - add in `C:\php-8.2.11-nts-Win32-vs16-x64\php.ini` => `extension=xdebug` to load the extension
+- run `vendor/bin/infection`
+  - on first run, the tool required some setup, then execute tests
+
 You are stuck in a step ? Checkout `stepX` branch to get help
